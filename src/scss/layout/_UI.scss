@@ -1,0 +1,34 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-app {
+    color: v.$azul-obscuro-2;
+    background-image: url('../img/3.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    @include m.tablet{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .imagen {
+        width: 10rem;
+        height: 10rem;
+        margin: auto;
+        margin-top: 10px;
+        background-image: url('../img/confidentLogo.png');
+        background-size: cover;
+        background-position: center;
+        @include m.tablet {
+            margin: auto;
+            width: 50%;
+            height: 50%;
+        } 
+    }
+    .app {
+        width: 95%;
+        margin: 0 auto;
+        padding: 3rem 4rem;
+    }
+    
+}
