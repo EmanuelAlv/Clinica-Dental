@@ -17,7 +17,9 @@ class LoginController {
     public static function recuperar() {
         echo "Desde recuperar mi contrasena";
     }
-    public static function crear() {
-        echo "Desde crear cuenta";
+    public static function crear(Router $router) {
+        $router->render('auth/crear-cuenta', [
+            
+        ]);
     }
 }
