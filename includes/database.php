@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '0000', '');
+$db = mysqli_connect('localhost', 'root', '0000', 'clinica_confident');
 
 
 if (!$db) {

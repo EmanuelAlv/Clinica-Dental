@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Usuario;
 use MVC\Router;
 
 class LoginController {
@@ -20,8 +21,34 @@ class LoginController {
         echo "Desde recuperar mi contrasena";
     }
     public static function crear(Router $router) {
-        $router->render('auth/crear-cuenta', [
+        $usuario = new Usuario;
 
+        // Alertas Vacias
+        $alertas =  [];
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $usuario->sincronizar($_POST);
+            $alertas = $usuario->validarNuevaCuenta();
+
+            // Revisar que alertas este vacio para continuar con el formulario
+            if(empty($alertas)){
+                // echo 'pasaste la validacion';
+                // Verificar que el usuario no este registrado
+                $resultado = $usuario->existeUsuario();
+
+                if($resultado->num_rows) {
+                    $alertas = Usuario::getAlertas();
+                }else{
+                    // hashear contrasena
+                    $usuario->hashPassword();
+                    // no esta registrado
+                    debuguear($usuario);
+                }
+            }
+            
+        }
+        $router->render('auth/crear-cuenta', [
+            'usuario' => $usuario, //compartimos la variable usuario en la vista crear-cuenta donde la mostraremos
+            'alertas' => $alertas
         ]);
     }
 }
