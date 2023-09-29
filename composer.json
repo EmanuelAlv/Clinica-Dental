@@ -7,6 +7,7 @@
             "MVC\\" : "./",
             "Controllers\\" : "./controllers",
             "Model\\" : "./models",
+            "Classes\\": "./classes",
             "Alvar\\ClinicaDental\\": "src/"
         }
     },
@@ -16,5 +17,7 @@
             "email": "alvarezema9@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
 }
