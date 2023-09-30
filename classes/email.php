@@ -37,6 +37,9 @@ class Email {
         <html>
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+        h1 {
+            color: #046e8f;
+        }
         h2 {
             font-size: 25px;
             font-weight: 500;
@@ -53,6 +56,7 @@ class Email {
     
         p {
             line-height: 18px;
+            color: #183446;
         }
     
         a {
@@ -66,7 +70,7 @@ class Email {
             padding: 0.7em 2em;
             font-size: 16px !important;
             font-weight: 500;
-            background: #000000;
+            background: #046e8f;
             color: #ffffff;
             border: none;
             text-transform: uppercase;
@@ -74,6 +78,7 @@ class Email {
         }
         p span {
             font-size: 12px;
+            color: #929292;
         }
         div p{
             border-bottom: 1px solid #000000;
@@ -82,12 +87,11 @@ class Email {
         }
     </style>
     <body>
-        <h1>BarberShop</h1>
+        <h1>ConfiDent</h1>
         <h2>¡Gracias por registrarte!</h2>
-        <p>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de todos los servicios de
-            BarberShop</p>
-        <a href='http://localhost:4000/confirmar-cuenta?token=" . $this->token . "'><button>Verificar</button></a>
-        <p>Si tú no te registraste en BarberShop, por favor ignora este correo electrónico.</p>
+        <p>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de todos los servicios de ConfiDent</p>
+        <a href='http://localhost:3000/confirmar-cuenta?token=". $this->token ."'><button>Verificar</button></a>
+        <p>Si tú no te registraste en ConfiDent, por favor ignora este correo electrónico.</p>
         <div><p></p></div>
         <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
     </body>

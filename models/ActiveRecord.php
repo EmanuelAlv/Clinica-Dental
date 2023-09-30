@@ -101,6 +101,17 @@ class ActiveRecord {
         }
         return $resultado;
     }
+    public function guardar2() {
+        $resultado = '';
+        if(!is_null($this->Id)) {
+            // actualizar
+            $resultado = $this->actualizar();
+        } else {
+            // Creando un nuevo registro
+            $resultado = $this->crear();
+        }
+        return $resultado;
+    }
 
     // Todos los registros
     public static function all() {
@@ -112,6 +123,22 @@ class ActiveRecord {
     // Busca un registro por su id
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+
+    // Busca un registro por su token
+    public static function where($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor} '";
+        // debuguear($query);
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+
+    //Buscar usuariopor su correo
+    public static function buscarCorreo($correo) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE correo = '${correo}'";
+        // debuguear($query);
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
@@ -157,7 +184,7 @@ class ActiveRecord {
         // Consulta SQL
         $query = "UPDATE " . static::$tabla ." SET ";
         $query .=  join(', ', $valores );
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " WHERE id = '" . self::$db->escape_string($this->Id) . "' ";
         $query .= " LIMIT 1 "; 
 
         // Actualizar BD

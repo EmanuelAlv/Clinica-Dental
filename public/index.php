@@ -6,10 +6,15 @@ use Controllers\LoginController;
 use MVC\Router;
 
 $router = new Router();
+// Landing Page
+$router->get('/', [LoginController::class, 'landing']);
+
+// Landing inicio
+$router->get('/inicio', [LoginController::class, 'inicio']);
 
 // iniciar sesion
-$router->get('/', [LoginController::class, 'login']); //En el segundo parametro de la funcion get estamos pasando un controlador llamado LoginController en la carpeta de controllers
-$router->post('/', [LoginController::class, 'login']);
+$router->get('/login', [LoginController::class, 'login']); //En el segundo parametro de la funcion get estamos pasando un controlador llamado LoginController en la carpeta de controllers
+$router->post('/login', [LoginController::class, 'login']);
 $router->get('/logout', [LoginController::class, 'logout']);
 
 //Recuperar contrasena
@@ -24,7 +29,7 @@ $router->post('/crear-cuenta', [LoginController::class, 'crear']);
 
 // Confirmar cuenta
 $router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
-$router->post('/crear-cuenta', [LoginController::class, 'crear']);
+$router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

@@ -18,14 +18,14 @@ class Usuario extends ActiveRecord {
     public $token;
 
     public function __construct($args = []) {
-        $this -> Id = $args['Id'] ?? null;
+        $this -> Id = $args['Id'] ?? 0;
         $this -> nombre = $args['nombre'] ?? '';
         $this -> apellido = $args['apellido'] ?? '';
         $this -> correo = $args['correo'] ?? '';
         $this -> password = $args['password'] ?? '';
         $this -> telefono = $args['telefono'] ?? '';
-        $this -> admin = $args['admin'] ?? null;
-        $this -> confirmado = $args['confirmado'] ?? null;
+        $this -> admin = $args['admin'] ?? 0;
+        $this -> confirmado = $args['confirmado'] ?? 0;
         $this -> token = $args['token'] ?? '';
     }
 
@@ -41,7 +41,7 @@ class Usuario extends ActiveRecord {
             self::$alertas['error'][] = 'El correo es obligatorio';
         }
         if(!$this->password) {
-            self::$alertas['error'][] = 'La contraseña es obligatorio';
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
         }
         if(strlen($this->password) < 6){
             self::$alertas['error'][] = 'La contraseña debe ser mayor a 6 caracteres';
@@ -49,6 +49,18 @@ class Usuario extends ActiveRecord {
 
         return self::$alertas;
     }
+
+    // 
+    public function validarLogin(){
+        if(!$this->correo) {
+            self::$alertas['error'][] = 'El correo es obligatorio';
+        }
+        if(!$this->password) {
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
+        }
+        return self::$alertas;
+    }
+
     // Revisa si el usaurio ya existe
     public function existeUsuario() {
         $query = "SELECT * FROM ". self::$tabla . " WHERE correo = '". $this->correo ."' LIMIT 1";
@@ -65,5 +77,11 @@ class Usuario extends ActiveRecord {
     
     public function crearToken() {
         $this->token = uniqid();
+    }
+
+    public function validarPasswordAndVerificado($password){
+        $resultado = password_verify($password, $this->password);
+        debuguear($resultado);
+
     }
 }
