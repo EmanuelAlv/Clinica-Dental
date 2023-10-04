@@ -26,6 +26,20 @@ class LoginController {
                 if($usuario){
                     // verificar pasword
                     $usuario->validarPasswordAndVerificado($auth->password);
+                    //Autenticar usuario
+                    session_start(); 
+                    $_SESSION['id'] = $usuario->Id;
+                    $_SESSION['nombre'] = $usuario->nombre." ".$usuario->apellido;
+                    $_SESSION['correo'] = $usuario->correo;
+                    $_SESSION['login'] = true;
+                    //Redireccionamiento
+                    if($usuario->admin === "1") {
+                        $_SESSION['admin'] = $usuario->admin ?? null;
+                        header('location: /admin');
+                    }else {
+                        header('location: /cita');
+                    }
+                    debuguear($usuario->admin);
                 }else{
                     Usuario::setAlerta('error', 'Usuario no encontrado');
                 }
@@ -41,12 +55,67 @@ class LoginController {
         echo "Desde el logout";
     }
     public static function olvide(Router $router) {
-        $router->render('auth/olvide-contra', [
+        $alertas = [];
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new Usuario($_POST);
+            $alertas = $auth->validarCorreo();
+            if(empty($alertas)){
+                $usuario = Usuario::buscarCorreo($auth->correo);
+                if($usuario && $usuario->confirmado === "1"){
+                    //Generar nuevo token de un uso
+                    $usuario->crearToken();
+                    $usuario->guardar2();
 
+                    //envio del correo
+                    $correo = new Email($usuario->correo, $usuario->nombre, $usuario->token);
+                    $correo->enviarInstrucciones();
+                    //alerta
+                    Usuario::setAlerta('exito','Revisa la bandeja de entrada de tu correo');
+                    // debuguear($usuario);
+                }else{
+                    Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado');
+                    
+                }
+                // debuguear($usuario);
+            }
+        }
+        $alertas = Usuario::getAlertas();
+        $router->render('auth/olvide-contra', [
+            'alertas' => $alertas
         ]);
     }
-    public static function recuperar() {
-        echo "Desde recuperar mi contrasena";
+    public static function recuperar(Router $router) {
+        $alertas = [];
+        $error = false;
+        $token = s($_GET['token']);
+        $usuario = Usuario::where2('token', $token);
+        // debuguear($usuario);
+        if(empty($usuario)){
+            Usuario::setAlerta('error','token no valido');
+            $error = true;
+        }
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            //leer nueva contrasena
+            $password = new Usuario($_POST);
+            $alertas = $password->validarPassword();
+            // debuguear($password);
+            if(empty($alertas)){
+                $usuario->password = null;
+                $usuario->password = $password->password;
+                $usuario->hashPassword();
+                $usuario->token = null;
+                $resultado = $usuario->guardar2();
+                if($resultado){
+                    header('location: /login');
+                }
+                debuguear($usuario);
+            }
+        }
+        $alertas =Usuario::getAlertas();
+        $router->render('auth/recuperar-contrasena', [
+            'alertas'=>$alertas,
+            'error'=>$error
+        ]);
     }
     public static function crear(Router $router) {
         $usuario = new Usuario;

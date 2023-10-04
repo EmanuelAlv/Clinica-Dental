@@ -61,6 +61,25 @@ class Usuario extends ActiveRecord {
         return self::$alertas;
     }
 
+    //Validar correo
+    public function validarCorreo(){
+        if(!$this->correo) {
+            self::$alertas['error'][] = 'El correo es obligatorio';
+        }
+        return self::$alertas;
+    }
+
+    //Validar password
+    public function validarPassword(){
+        if(!$this->password) {
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
+        }
+        if(strlen($this->password) < 6){
+            self::$alertas['error'][] = 'La contraseña debe contener por lo menos 6 caracteres';
+        }
+        return self::$alertas;
+    }
+
     // Revisa si el usaurio ya existe
     public function existeUsuario() {
         $query = "SELECT * FROM ". self::$tabla . " WHERE correo = '". $this->correo ."' LIMIT 1";
@@ -81,7 +100,12 @@ class Usuario extends ActiveRecord {
 
     public function validarPasswordAndVerificado($password){
         $resultado = password_verify($password, $this->password);
-        debuguear($resultado);
+        // debuguear($resultado);
+        if(!$resultado || !$this->confirmado){
+            self::$alertas['error'] = ['Contrasena incorrecta o cuenta no confirmada'];
+        }else {
+            return true;
+        }
 
     }
 }

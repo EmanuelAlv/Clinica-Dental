@@ -134,6 +134,12 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+    public static function where2($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}'";
+        // debuguear($query);
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
 
     //Buscar usuariopor su correo
     public static function buscarCorreo($correo) {
