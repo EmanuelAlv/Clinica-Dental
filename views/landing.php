@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 <body>
-    <?php echo $contenido; ?>      
+    <?php echo $contenido; ?>
+    <?php echo $script ?? ''; ?>       
 </body>
 </html>
