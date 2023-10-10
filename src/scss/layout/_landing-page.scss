@@ -1,21 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-:root {
-    /* Colores */
-    --Color-base: #ffffff;
-    --Color-obscuro: #022f40;
-    --Color-cyanLight: #38aecc;
-    --Color-titulos: #0090c1;
-    --Color-cyanDark: #046e8f;
-
-    /* Tamanos texto */
-    --Titulo1: 60px;
-    --Titulo2: 40px;
-    --Texto: 16px;
-  }
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 body {
     font-family: Arial, sans-serif;
@@ -24,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: v.$exito-color;
     color: #fff;
     padding: 1em;
     text-align: center;
