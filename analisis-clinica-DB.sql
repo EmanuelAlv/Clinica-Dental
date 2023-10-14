@@ -50,3 +50,18 @@ CREATE TABLE citasServicios (
 
 INSERT INTO usuarios (nombre, apellido, correo, password, telefono, admin, confirmado, token)
 VALUES ('Emanuel', 'Alvarez', 'alvarezema9@gmail.com', 'contraseña_segura', '123456789', 0, 1, 'abcd1234');
+
+SELECT * FROM usuarios WHERE token = '65178d326d323';
+
+
+INSERT INTO servicios (Id,nombre, precio)
+VALUES
+    (1,'Consulta general', 100),
+    (2,'Limpieza dental', 100),
+    (3,'Rellenos', 100),
+    (4,'Blanqueamiento dental', 100),
+    (5,'Extracciones', 100),
+    (6,'Coronas', 100),
+    (7,'Puentes fijos', 100),
+    (8,'Tratamiento Periodontal', 100);
+
