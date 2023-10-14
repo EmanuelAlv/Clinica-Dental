@@ -17,16 +17,45 @@
     }
     .servicio{
         background-color: v.$blanco;
-        padding: 1rem 1rem 1rem 4rem;
+        padding: 2rem 1rem;
         border-radius: 12px;
         border: 1px solid v.$azul-obscuro-2;
+        transition-property: transform;
+        transition-duration: 300ms;
+        margin-bottom: 1rem;
+        text-align: center;
+        
+        &.seleccionado{
+            background-color: v.$azul-claro;
+            p{
+                color: v.$blanco;
+            }
+        }
+
+        &:hover{
+            transform: scale(1.04);
+        }
         p{
             color: v.$azul-obscuro-2;
         }
         .nombre-servicio{
             font-weight: 700;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
+            font-size: 2.4rem;
+            margin: 0;
+            // text-align: center;
+        }
+        .precio-servicio{
+            font-size: 2.4rem;
+            margin: 0;
+        }
+        @include m.tablet{
+            margin: 0;
+            .precio-servicio{
+                font-size: 2.2rem;
+            }
+            .nombre-servicio{
+                font-size: 2.2rem;
+            }
         }
     }
 }
