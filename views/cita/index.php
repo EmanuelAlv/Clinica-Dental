@@ -1,5 +1,6 @@
 <div class="contenedor-principal">
     <h1 class="nombre-pagina">Crear nueva cita</h1>
+    <p class="descripcion-pagina text-center">Hola <?php echo $nombre?></p>
     <p class="descripcion-pagina text-center">Completa el formulario para agendar tu cita.</p>
     <nav class="tabs">
         <button type="button" data-paso="1">Servicios</button>
@@ -7,8 +8,6 @@
         <button type="button" data-paso="3">Resumen</button>
     </nav> 
     <div id="app" class="contenedor-secciones">
-        
-
         <div id="paso-1" class="seccion">
             <h2>Servicios</h2>
             <p class="text-center">Elige los servicios que deseas para tu cita.</p>
@@ -41,6 +40,9 @@
     <div class="paginacion">
         <button id="anterior" class="boton">&laquo; Anterior</button>
         <button id="siguiente" class="boton">Siguiente &raquo;</button>
+    </div>
+    <div class="barra">  
+        <a class="boton" href="/logout">Cerrar sesion</a>
     </div>
 </div>
 <?php

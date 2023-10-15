@@ -30,5 +30,16 @@
         margin: 0 auto;
         padding: 3rem 4rem;
     }
-    
+}
+.barra {
+    padding: 2rem 0;
+    .boton{
+        background-color: v.$azulObscuro;
+        padding: 0.8rem;
+        width: 50%;
+        margin: 0 auto;
+        @include m.tablet{
+            width: 20%;
+        }
+    }
 }

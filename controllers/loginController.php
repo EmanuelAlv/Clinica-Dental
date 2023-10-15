@@ -52,7 +52,11 @@ class LoginController {
         ]);
     }
     public static function logout() {
-        echo "Desde el logout";
+        session_start();
+        // debuguear($_SESSION);
+        $_SESSION = [];
+        // debuguear($_SESSION);
+        header('location: /');
     }
     public static function olvide(Router $router) {
         $alertas = [];
