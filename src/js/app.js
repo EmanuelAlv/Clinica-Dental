@@ -262,27 +262,49 @@ function mostrarResumen(){
 async function reservarCita() {
     const { nombre, fecha, hora, servicios, Id} = cita;
     const idServicios = servicios.map( servicio => servicio.Id );
-    // console.log(idServicios);
+    
 
     const datos = new FormData();
+    // datos.append('nombre', 'Emanuel');
 
-
+    datos.append('usuarioId', Id);
     datos.append('fecha', fecha);
     datos.append('hora', hora);
-    datos.append('usuarioId', Id);
-    datos.append('sevicios', idServicios);
-    console.log(datos);
-    console.log([...datos]);
+    datos.append('servicios', idServicios);
+    
+    
+    // 
+    // console.log(datos);
+    // console.log([...datos]);
 
     // Peticion a la API
-    const url = 'http://localhost:3000/api/citas'
-    const respuesta = await fetch(url, {
-        method: 'POST',
-        body: datos
-    });
+    try {
+        const url = 'http://localhost:3000/api/citas'
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
 
-    const resultado = await respuesta.json();
-    console.log(resultado);
+        const resultado = await respuesta.json();
+        if(resultado.resultado) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Felicidades',
+                text: 'Tu cita esta agendada',
+            }).then( () => {
+                    window.location.reload();
+            })
+        }
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salio mal, vuelve a intentarlo mas tarde',
+        }).then( () => {
+                window.location.reload();
+        })
+    }
+    
 
     // console.log(respuesta);
     // console.log([...datos])//Sintaxis para ver lo que hay dentor de data

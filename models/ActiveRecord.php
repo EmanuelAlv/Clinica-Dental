@@ -64,7 +64,7 @@ class ActiveRecord {
     public function atributos() {
         $atributos = [];
         foreach(static::$columnasDB as $columna) {
-            if($columna === 'id') continue;
+            if($columna === 'Id') continue;
             $atributos[$columna] = $this->$columna;
         }
         return $atributos;
@@ -164,9 +164,9 @@ class ActiveRecord {
         // Insertar en la base de datos
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' "; 
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
+        $query .= " ) VALUES ( '"; 
+        $query .= join("', '" , array_values($atributos));
+        $query .= "') ";
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);
@@ -188,13 +188,16 @@ class ActiveRecord {
         }
 
         // Consulta SQL
-        $query = "UPDATE " . static::$tabla ." SET ";
+        $query = "UPDATE ". static::$tabla ." SET ";
         $query .=  join(', ', $valores );
         $query .= " WHERE id = '" . self::$db->escape_string($this->Id) . "' ";
-        $query .= " LIMIT 1 "; 
+        $query .= " LIMIT 1"; 
+        
+        echo $query;
 
         // Actualizar BD
         $resultado = self::$db->query($query);
+        
         return $resultado;
     }
 
