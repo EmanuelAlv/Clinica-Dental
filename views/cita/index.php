@@ -24,15 +24,16 @@
                 </div>
                 <div class="campo">
                     <label for="fecha">Fecha</label>
-                    <input id="fecha" type="date">
+                    <input id="fecha" type="date" min="<?php echo date('Y-m-d', strtotime('+1 day'))?>">
                 </div>
                 <div class="campo">
                     <label for="hora">Hora</label>
                     <input id="hora" type="time" >
                 </div>
+                <input type="hidden" id="Id" value="<?php echo $Id ?>" >
             </form>
         </div>
-        <div id="paso-3" class="seccion">
+        <div id="paso-3" class="seccion contenido-resumen">
             <h2>Resumen</h2>
             <p class="text-center">Verifica que la informacion de tu cita sea correcta</p>
         </div>
@@ -44,6 +45,7 @@
 </div>
 <?php
     $script = "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src='build/js/app.js'></script>
     ";
 ?>

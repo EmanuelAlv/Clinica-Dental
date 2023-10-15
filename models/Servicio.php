@@ -14,7 +14,7 @@ class Servicio extends ActiveRecord {
     public function __construct($args = []) {
         $this->Id = $args['Id'] ?? 0;
         $this->nombre = $args['nombre'] ?? '';
-        $this->nombre = $args['nombre'] ?? '';
+        $this->precio = $args['precio'] ?? '';
     }
 
 }
