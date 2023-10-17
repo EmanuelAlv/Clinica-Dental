@@ -140,7 +140,12 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
-
+    //Consulta plana de SQL (utulizar cuando los metodos del modelo no son suficientes)
+    public static function SQL($query) {
+        // debuguear($query);
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
     //Buscar usuariopor su correo
     public static function buscarCorreo($correo) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE correo = '${correo}'";

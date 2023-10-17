@@ -2,8 +2,10 @@
 
 namespace Controllers;
 use Model\Cita;
+use Model\Usuario;
 use Model\CitaServicio;
 use Model\Servicio;
+use Classes\EmailCitas;
 
 class APIController {
     public static function index() {
@@ -14,6 +16,7 @@ class APIController {
         $cita = new Cita($_POST);
         $resultado = $cita->guardar();
         $id = $resultado['id'];
+        $usuario = Usuario::where2('Id', $id);
 
         //Almacena la cita y los servicios
         $idServicios = explode(",", $_POST['servicios']);
@@ -27,6 +30,10 @@ class APIController {
             $citaServicio->guardar();
         }
         echo json_encode(['resultado' => $resultado]);
+        $correo = new EmailCitas($usuario->correo, $usuario->nombre, $cita->fecha, $cita->hora);
+        $correo->enviarConfirmacionCita();
+        // $auth = new Usuario($_POST);
+        
 
         // $respuesta = [
         //     'cita' => $cita

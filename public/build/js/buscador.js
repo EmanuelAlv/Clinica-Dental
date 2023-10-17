@@ -1,0 +1,1 @@
+function iniciarApp(){buscarXfecha()}document.addEventListener("DOMContentLoaded",(function(){iniciarApp()})),buscarXfecha();document.querySelector("#fecha").addEventListener("input",(function(){}));
