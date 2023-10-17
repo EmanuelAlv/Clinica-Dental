@@ -1,0 +1,23 @@
+{
+    "name": "alvar/clinica-dental",
+    "description": "Proyecto clinica dental con PHP 8, SQL, SASS, Gulp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\": "./classes",
+            "Alvar\\ClinicaDental\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emanuel Alvarez",
+            "email": "alvarezema9@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
