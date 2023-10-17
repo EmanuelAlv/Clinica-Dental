@@ -41,9 +41,9 @@
         <button id="anterior" class="boton">&laquo; Anterior</button>
         <button id="siguiente" class="boton">Siguiente &raquo;</button>
     </div>
-    <div class="barra">  
-        <a class="boton" href="/logout">Cerrar sesion</a>
-    </div>
+    <?php
+        include_once __DIR__ . '/../templates/barra.php';
+    ?>
 </div>
 <?php
     $script = "
