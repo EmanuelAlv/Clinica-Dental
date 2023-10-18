@@ -11,6 +11,11 @@
             </div>
         </form>
     </div>
+    <?php
+        if(count($citas) === 0){
+            echo "<h3>No hay citas para este dia</h3>";
+        }
+    ?>
     <div class="citas-admin">
         <ul class="citas">
             <?php
@@ -26,6 +31,11 @@
                             <p>Cliente: <span><?php echo $cita->cliente?></span></p>
                             <p>Correo: <span><?php echo $cita->correo?></span></p>
                             <p>Telefono: <span><?php echo $cita->telefono?></span></p>
+                            <form class="form-boton" action="/api/eliminar" method="POST">
+                                <label for="cometarios">Comentarios:</label>
+                                <input id="cometarios" type="text" name="comentarios" value="<?php echo $cita->comentarios ?>">
+                                <input type="submit" class="boton" value="Guardar">
+                            </form>
                             <h3>Servicios:</h3>
                             <?php
                                 $idCita = $cita->Id;
@@ -38,6 +48,10 @@
                     $proximo = $citas[$key + 1]->Id ?? 0;
                     if(esUltimo($actual, $proximo)){ ?>
                         <p class="total">Total: <span>Q.<?php echo $total?></span></p>
+                        <form class="form-boton" action="/api/eliminar" method="POST">
+                            <input type="hidden" name="Id" value="<?php echo $cita->Id; ?>">
+                            <input type="submit" class="boton-eliminar" value="Eliminar">
+                        </form>
                 <?php
                     }
                 ?>
