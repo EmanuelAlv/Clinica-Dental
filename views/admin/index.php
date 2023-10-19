@@ -1,8 +1,10 @@
 <div class="adminBackground">
     <h1 class="nombre-pagina">Panel de administracion</h1>
-    
-    <h3>Buscar citas</h3>
+    <?php 
+        include_once __DIR__ . '/../templates/barraServicios.php'
+    ?>
     <p class="descripcion-pagina text-center">Hola <?php echo $nombre?></p>
+    <h3>Buscar citas</h3>
     <div class="busqueda">
         <form class="formulario" action="">
             <div class="campo">

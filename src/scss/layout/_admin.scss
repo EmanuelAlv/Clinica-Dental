@@ -57,3 +57,9 @@
         }
     }
 }
+.servicios {
+    @extend .citas;
+}
+.a-blanco{
+    color: v.$blanco;
+}

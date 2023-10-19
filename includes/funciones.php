@@ -26,3 +26,10 @@ function isAuth() : void {
         header('Location: /login');
     }
 }
+
+// Funcion que revisa si el usuario es administrador
+function isAdmin() : void {
+    if(!isset($_SESSION['admin'])){
+        header('Location: /login');
+    }
+}
