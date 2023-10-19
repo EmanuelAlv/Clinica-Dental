@@ -21,11 +21,11 @@ class EmailCitas {
         // crear el objeto de email
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '32552e426296a9';
-        $mail->Password = '33614ab750d62e';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USERNAME'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('info@confident.gt');
         $mail->addAddress('cliente@confident.gt','confident.gt');
