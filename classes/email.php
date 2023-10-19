@@ -23,8 +23,8 @@ class Email {
         $mail->Host = 'sandbox.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '867854e3ab9256';
-        $mail->Password = 'e6d30bc22b0533';
+        $mail->Username = '32552e426296a9';
+        $mail->Password = '33614ab750d62e';
 
         $mail->setFrom('info@confident.gt');
         $mail->addAddress('info@confident.gt','confident.gt');
@@ -111,8 +111,8 @@ class Email {
         $mail->Host = 'sandbox.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '867854e3ab9256';
-        $mail->Password = 'e6d30bc22b0533';
+        $mail->Username = '32552e426296a9';
+        $mail->Password = '33614ab750d62e';
 
         $mail->setFrom('info@confident.gt');
         $mail->addAddress('info@confident.gt','confident.gt');

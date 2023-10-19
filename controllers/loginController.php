@@ -170,7 +170,7 @@ class LoginController {
     public static function confirmar(Router $router) {
         $alertas = [];
         $token = s($_GET['token']); //Conseguimos el token de la url enviada al correo
-        $usuario = Usuario::where('token', $token);
+        $usuario = Usuario::where2('token', $token);
         // debuguear($usuario);
         if(empty($usuario)){ //validacion si el usuario existe
             //Si no existe mostramos un mensaje de error
