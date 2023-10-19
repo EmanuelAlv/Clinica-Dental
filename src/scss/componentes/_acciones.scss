@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones {
+    margin: 5rem auto 0;
+    max-width: 25rem;
+    @include m.tablet {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-around;
+    }
+    a {
+        // color: v.$azul-claro;    
+        display: block;
+        // margin-bottom: calc(v.$separacion / 4);  
+        text-align: center;
+    }
+}

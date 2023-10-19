@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.adminBackground{
+    background-image: url('../img/3.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+
+    h1{
+        margin: 3rem 0 1rem 0;
+    }
+    h3{
+        margin: 0 0 1rem 0;
+    }
+    .campo label{
+        color: v.$azul-obscuro-2;
+    }
+}
+.citas-admin{
+    @include m.tablet {
+    height: 60rem;
+        overflow: scroll;
+    }
+}
+.form-boton{
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.citas{
+    width: 65%;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    li{
+        padding: 1rem;
+        border-bottom: 1px solid v.$azul-claro-2;
+        p{
+            // padding: 1rem;
+            font-weight: v.$bold ;
+            margin: 0.5rem;
+            color: v.$azul-claro-2;
+        }
+        span{
+            font-weight: v.$regular;
+            margin: 0.5rem;
+            color: v.$azul-obscuro-2;
+        }
+        .servicio{
+            font-weight: v.$regular;
+            color: v.$azul-obscuro-2;
+        }
+        .total{
+            margin: 2rem 0 0 1rem;
+        }
+    }
+}
+.servicios {
+    @extend .citas;
+}
+.a-blanco{
+    color: v.$blanco;
+}
