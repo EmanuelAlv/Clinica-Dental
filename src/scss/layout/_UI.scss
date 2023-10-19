@@ -43,3 +43,17 @@
         }
     }
 }
+
+.barra-servicios{
+    padding: 0 1rem;
+    @include m.tablet{
+        display: flex;
+        justify-content: space-around;
+    }
+    .boton{
+        margin: 1rem 0;
+        @include m.tablet{
+            margin: 2rem 0;
+        }
+    }
+}
