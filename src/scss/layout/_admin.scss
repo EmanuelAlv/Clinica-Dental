@@ -19,9 +19,15 @@
 }
 .citas-admin{
     @include m.tablet {
-        height: 60rem;
+    height: 60rem;
         overflow: scroll;
     }
+}
+.form-boton{
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .citas{
     width: 65%;
@@ -50,4 +56,10 @@
             margin: 2rem 0 0 1rem;
         }
     }
+}
+.servicios {
+    @extend .citas;
+}
+.a-blanco{
+    color: v.$blanco;
 }
