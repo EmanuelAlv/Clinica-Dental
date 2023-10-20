@@ -7,7 +7,7 @@
         <nav>
             <ul>
                 <li><a href="/login">Login</a></li>
-                <li><a href="#equipo">Tratamientos</a></li>
+                <li><a href="#servicios">Tratamientos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -23,11 +23,15 @@
             <P>2 calle y avenida reforma zona 9<br/>
                 Edificio Nova Reformador<br>
                 Cuarto nivel - Oficina 401B
-                </P>
+            </P>
+            <div class="contenedor-botones-landing">
+                <a class="boton" href="/cita">Angendar cita</a>
+                <a id="servicios" class="boton" href="https://maps.app.goo.gl/arhHPzi8eLcTQtFU8">¿Como llegar?</a>
+            </div>
         </div>
     </section>
 
-        <section class="servicios">
+        <section class="servicios-landing">
             <div class="contenedor-principal-landing ">
             <h2>Nuestros Servicios</h2>
             <div class="contenedor-cards">
@@ -67,27 +71,34 @@
                 </div>
             </div>
             </div>
+            <div class="boton-landing">
+                <a class="boton" href="/cita">Angendar cita</a>
+            </div>
         </section>
 
-    <section class="contacto">
+    <section >
+        
+    </section>
+    <section id="contacto" class="contacto">
         <h2>Contacto</h2>
         <p>Operador: Gabriel Alvarez <br>
            Numero: +502 36175747 </p>
-    </section>
-    <section class="contacto">
         <h2>Siguenos</h2>
         <div class="contacto-contenedor-cards flex">
-            <div class="contacto-card">
+            <a href="/cita" class="contacto-card">
                 <img src="https://i.ibb.co/31qH7M0/circle-phone.png" alt="Llamada">
-            </div>
-            <div class="contacto-card">
+            </a>
+            <a href="https://wa.me/36175747" class="contacto-card">
                 <img src="https://i.ibb.co/kGVW5d6/whatsapp.png" alt="Whatsapp">
-            </div>
-            <div class="contacto-card">
+            </a href="">
+            <a href="https://instagram.com" class="contacto-card">
                 <img src="https://i.ibb.co/z6Vq42Z/instagram.png" alt="Instagram">
-            </div>
-            <div class="contacto-card">
+            </a href="">
+            <a href="https://facebook.com" class="contacto-card">
                 <img src="https://i.ibb.co/QNQ0DNx/facebook.png" alt="Facebook">
-            </div>
+            </a href="">
         </div>
     </section>
+    <footer>
+        <p>&copy; 2023 CodeUMG. Todos los derechos reservados.</p>
+    </footer>
