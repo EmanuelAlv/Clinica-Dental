@@ -13,18 +13,17 @@
         display: grid;
         gap: 2rem;
 
-        @include m.grid(2, 2rem);
+        @include m.grid(3, 2rem);
     }
     .servicio{
         background-color: v.$blanco;
-        padding: 2rem 1rem;
+        padding: 0.5rem 0.5rem;
         border-radius: 12px;
         border: 1px solid v.$azul-obscuro-2;
         transition-property: transform;
         transition-duration: 300ms;
         margin-bottom: 1rem;
         text-align: center;
-        
         &.seleccionado{
             background-color: v.$azul-claro;
             p{
@@ -51,10 +50,10 @@
         @include m.tablet{
             margin: 0;
             .precio-servicio{
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .nombre-servicio{
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
         }
     }
