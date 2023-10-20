@@ -5,11 +5,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('../img/3.png');
+
+}
+h1{
+    position: relative;
+    top: 10px;
 }
 
 header {
-    background-color: v.$exito-color;
-    color: #fff;
+    justify-content: center;
+    background-image: url('../img/3.png');
     padding: 1em;
     text-align: center;
     display: flex;
@@ -28,18 +34,18 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: v.$azul-obscuro-2;
     text-decoration: none;
 }
+
 
 section {
     padding: 2em;
 }
 
 #banner {
-    background-image: url('banner.jpg'); /* Agrega la URL de tu imagen de banner */
     background-size: cover;
-    color: #fff;
+    color: v.$azul-obscuro-2;
     text-align: center;
 }
 
@@ -57,7 +63,7 @@ form input {
 
 footer {
     background-color: #333;
-    color: #fff;
+    color: v.$azul-obscuro-2;
     text-align: center;
     padding: 1em;
     position: fixed;
@@ -72,16 +78,17 @@ footer {
 
 .logo-container img {
     width: 50px;
-    max-height: 50px; /* Ajusta la altura máxima según tu necesidad */
-    margin-right: 10px; /* Espacio entre el logo y el nombre */
+    max-height: 50px;
+    margin-right: 10px;
 }
 
 .Informacion-Ubicacion {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
-    background-color: #fff;
+    padding: 30px 0;
+
+
 }
 
 .info-leftside,
@@ -90,16 +97,28 @@ footer {
     padding: 20px;
 }
 
-.info-leftside img {
+.info-leftside-flex {
     max-width: 100%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 55%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-leftside-flex img{
+    width: 50%;
+    margin-left: 40%;
+    border-radius: 20px;
+
 }
 
 .info-rightside h2 {
     font-size: 1.8em;
-    color: #333;
+    color: v.$azul-obscuro-2;
     margin-bottom: 10px;
+    margin-right: 59%;
 }
 
 .info-rightside p {
@@ -115,79 +134,77 @@ footer {
 
 .servicios h2 {
     font-size: 2em;
-    color: #333;
-    margin-bottom: 30px;
+    color: v.$azul-obscuro-2;
+    margin-bottom: 15px;
 }
 
-.contenedor-principal {
-    max-width: 1200px;
-    margin: 0 auto;
+.contenedor-principal-landing {
+    margin: 0;
+    padding: 0;
+
 }
 
 .contenedor-cards {
     display: flex;
-    justify-content: center;
-}
-
-
-.columna1,
-.columna2 {
-    display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    align-items: center;
+
 }
 
 .card-servicios {
     background-color: #fff;
-    border-radius: 50%;
+    border-radius: 60%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
     width: 200px;
     height: 200px;
     text-align: center;
     overflow: hidden;
-    transition: transform 0.3s ease; /* Movido el transition aquí */
+    transition: transform 0.3s ease;
 }
 
 .card-servicios:hover {
     transform: scale(1.1);
 }
 
-
 .card-servicios img {
     margin-top: 30px;
     max-width: 60px;
-    border-radius: 0%; /* Haciendo la imagen completamente circular */
+    border-radius: 10%;
 }
-
-
 
 .card-servicios p {
     font-size: 1.2em;
-    color: #555;
+    color: v.$azul-obscuro-2;
 }
+
 
 .contacto {
     text-align: center;
-    padding: 20px 0;
+    padding: 0;
+
 }
 
 .contacto h2 {
     font-size: 2em;
-    color: #333;
+    color: v.$azul-obscuro-2;
     margin-bottom: 20px;
 }
 
 .contacto-contenedor-cards {
     display: flex;
     justify-content: center;
+    background-color: #fff;
+    margin-bottom: 5px;
+    
 }
 
 .contacto-card {
-    background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin-top: 0;
+    padding: 0;
+    margin: 0px 20px;
     width: 150px;
     height: 150px;
     display: flex;
