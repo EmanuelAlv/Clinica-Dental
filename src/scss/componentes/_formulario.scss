@@ -2,14 +2,19 @@
 @use 'base/mixins' as m;
 
 .formulario {
-    margin-top: 5rem;
-    width:  100%;
+    margin-top: 3rem;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .campo {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
     align-items: left;
+    // width: 100rem;
     @include m.tablet {
          flex-direction: row;
          align-items: center;
@@ -29,5 +34,6 @@
         border: 2px solid v.$gris;
         border-radius: 12px;
         padding: 1rem 2rem;
+        width: 100%;
     }
 }

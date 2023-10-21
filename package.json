@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "gulp": "gulp",
-    "build": "gulp buld"
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC",

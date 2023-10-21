@@ -5,31 +5,61 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    // background-image: url('../img/3.png');
+
+}
+h1{
+    position: relative;
+    top: 10px;
+}
+.boton-landing{
+    width: 20rem;
+    margin: 0 auto;
 }
 
 header {
-    background-color: v.$exito-color;
-    color: #fff;
+    justify-content: center;
+    // background-image: url('../img/3.png');
+    background-color: #cbeaf2;
     padding: 1em;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 7rem;
 }
 
 nav ul {
-    margin-top: 30px;
+    // margin-top: 20rem;
+    margin: 0;
     list-style: none;
     padding: 0;
+}
+.lista-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav ul li {
     display: inline;
     margin: 0 10px;
+
 }
 
 nav ul li a {
-    color: #fff;
+    color: v.$azul-obscuro-2;
     text-decoration: none;
+    // transition: all 0.3s ease-out;
+    transition: all transform 2s ease-out;
+}
+    
+nav ul li a:hover {
+    color: darken( v.$azul-obscuro-2, 20% );
+    font-weight: bold; /* Cambia a negrita en hover */
+    // text-decoration: underline; /* Subraya en hover */
 }
 
 section {
@@ -37,33 +67,11 @@ section {
 }
 
 #banner {
-    background-image: url('banner.jpg'); /* Agrega la URL de tu imagen de banner */
     background-size: cover;
-    color: #fff;
+    color: v.$azul-obscuro-2;
     text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-form label,
-form input {
-    margin-bottom: 10px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
 .logo-container {
     display: flex;
@@ -72,34 +80,66 @@ footer {
 
 .logo-container img {
     width: 50px;
-    max-height: 50px; /* Ajusta la altura máxima según tu necesidad */
-    margin-right: 10px; /* Espacio entre el logo y el nombre */
+    max-height: 50px;
+    margin-right: 10px;
 }
 
 .Informacion-Ubicacion {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
-    background-color: #fff;
+    padding: 30px 0;
+    width: 100%;
+    height: 87vh;
+    background-image: url('../img/3.png');
+    background-position: bottom;
 }
-
+.contenedor-botones-landing{
+    display: flex;
+    .boton{
+        margin: 2rem 1rem 0 0;
+    }
+}
 .info-leftside,
 .info-rightside {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // flex: 1;
     padding: 20px;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.info-leftside img {
+.info-leftside-flex {
     max-width: 100%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    // height: 25%;
+    display: flex;
+    justify-content: center;
+
+
 }
 
+.info-leftside-flex img{
+    width: 80%;
+    // margin-left: 40%;
+    border-radius: 20px;
+
+}
+
+.info-rightside{
+    align-items:first baseline;
+}
 .info-rightside h2 {
     font-size: 1.8em;
-    color: #333;
+    color: v.$azul-obscuro-2;
     margin-bottom: 10px;
+    text-align: left;
+    // margin-right: 59%;
 }
 
 .info-rightside p {
@@ -108,98 +148,127 @@ footer {
     line-height: 1.6;
 }
 
-.servicios {
+.servicios-landing {
     text-align: center;
     padding: 0;
+    width: 100%;
+    margin: 0 0;
+    background-image: url('../img/3.png');
+    background-position: center;
 }
 
-.servicios h2 {
+.servicios-landing h2 {
+    margin-top: 4rem;
     font-size: 2em;
-    color: #333;
-    margin-bottom: 30px;
+    color: v.$azul-obscuro-2;
+    margin-bottom: 5rem;
 }
 
-.contenedor-principal {
-    max-width: 1200px;
-    margin: 0 auto;
+.contenedor-principal-landing {
+    margin: 0;
+    padding: 0;
+    height: 42rem;
+    
 }
 
 .contenedor-cards {
+    margin: 0 18rem;
     display: flex;
-    justify-content: center;
-}
-
-
-.columna1,
-.columna2 {
-    display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+    // margin-bottom: 50px;
+    
 }
 
 .card-servicios {
     background-color: #fff;
-    border-radius: 50%;
+    border-radius: 60%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    width: 200px;
-    height: 200px;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
     text-align: center;
     overflow: hidden;
-    transition: transform 0.3s ease; /* Movido el transition aquí */
+    transition: transform 0.3s ease;
 }
 
 .card-servicios:hover {
     transform: scale(1.1);
 }
 
-
 .card-servicios img {
     margin-top: 30px;
     max-width: 60px;
-    border-radius: 0%; /* Haciendo la imagen completamente circular */
+    border-radius: 10%;
 }
-
-
 
 .card-servicios p {
-    font-size: 1.2em;
-    color: #555;
+    font-size: 1.1rem;
+    color: v.$azul-obscuro-2;
+    font-weight: bold;
 }
 
+
 .contacto {
+    // margin-top: 1rem;
     text-align: center;
-    padding: 20px 0;
+    padding: 0;
+    background-color: v.$blanco;
+    height: 32rem;
+
 }
 
 .contacto h2 {
+    margin-top: 2rem;
     font-size: 2em;
-    color: #333;
+    color: v.$azul-obscuro-2;
     margin-bottom: 20px;
 }
 
 .contacto-contenedor-cards {
     display: flex;
     justify-content: center;
+    background-color: #fff;
+    margin-bottom: 5px;
+    
 }
 
 .contacto-card {
-    background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    width: 150px;
-    height: 150px;
+    margin-top: 0;
+    padding: 0;
+    margin: 0px 20px;
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .contacto-card img {
-    max-width: 100px;
+    max-width: 40px;
 }
 
 .contacto-card img:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
+}
+/* Estilos para el footer */
+footer {
+    background-color: #333; /* Cambia el color de fondo según tus preferencias */
+    color: #fff; /* Cambia el color de texto según tus preferencias */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    // margin-top: 20px;
+}
+
+/* Estilos para el texto de derechos reservados */
+footer p {
+    margin: 0;
+    font-size: 14px;
 }

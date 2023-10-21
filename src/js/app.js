@@ -203,6 +203,7 @@ function mostrarResumen(){
     const {nombre, fecha, hora, servicios} = cita;
 
     const nombreCliente = document.createElement('P');
+    nombreCliente.classList.add('resumen-line')
     nombreCliente.innerHTML = `<span>Nombre: </span> ${nombre}`;
     
     // Fomatear fecha en espanol
@@ -218,9 +219,11 @@ function mostrarResumen(){
     // console.log(fechaFormateada);
     
     const fechaCita = document.createElement('P');
+    fechaCita.classList.add('resumen-line')
     fechaCita.innerHTML = `<span>Fecha: </span> ${fechaFormateada}`;
 
     const horaCita = document.createElement('P');
+    horaCita.classList.add('resumen-line')
     horaCita.innerHTML = `<span>Hora: </span> ${hora}`;
 
     resumen.appendChild(nombreCliente);
