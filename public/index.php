@@ -14,7 +14,7 @@ $router = new Router();
 $router->get('/', [LoginController::class, 'landing']);
 
 // Landing inicio
-$router->get('/inicio', [LoginController::class, 'inicio']);
+// $router->get('/inicio', [LoginController::class, 'inicio']);
 
 // iniciar sesion
 $router->get('/login', [LoginController::class, 'login']); //En el segundo parametro de la funcion get estamos pasando un controlador llamado LoginController en la carpeta de controllers
