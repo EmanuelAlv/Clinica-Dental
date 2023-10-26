@@ -1,10 +1,10 @@
 <?php
 
 $db = mysqli_connect(
-    'confidentgt.com', 
-    'u163179695_admin', 
-    'lololoco.A12', 
-    'u163179695_confident'
+    $_ENV['DB_host'], 
+    $_ENV['DB_USER'], 
+    $_ENV['DB_PASS'], 
+    $_ENV['DB_NAME']
 );
 
 // $db->set_charset('UTF-8');
